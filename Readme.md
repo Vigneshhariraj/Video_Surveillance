@@ -1,6 +1,6 @@
-# 🛡️ Sentinel: Smart Video Surveillance System
+# Sentinel: Smart Video Surveillance System
 
-## 📌 Overview
+## Overview
 
 This project implements an end-to-end **AI-powered video surveillance system** that processes security camera footage to:
 
@@ -13,7 +13,7 @@ The system is designed using a **modular pipeline architecture**, enabling scala
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 * Build a robust **person detection and tracking system**
 * Implement **zone-based event detection**
@@ -24,16 +24,16 @@ The system is designed using a **modular pipeline architecture**, enabling scala
 
 ---
 
-## 🔧 Setup & Installation
+## Setup & Installation
 
 Follow these steps to get the system running locally.
 
-### 1️⃣ Prerequisites
+### 1. Prerequisites
 * **Python:** 3.9 or higher
 * **Node.js:** 18.x or higher
 * **NPM:** 9.x or higher
 
-### 2️⃣ Backend Setup (Flask)
+### 2. Backend Setup (Flask)
 The backend handles detection, tracking, and video processing.
 
 ```bash
@@ -47,11 +47,12 @@ source .venv/bin/activate # Linux/Mac
 
 # Install dependencies
 pip install -r requirements.txt
+```
 
-### 3️⃣ Running the System
+### 3. Running the System
 You can run the system in two modes:
 
-#### 🌐 API Mode (Web Dashboard)
+#### API Mode (Web Dashboard)
 This is the recommended way to use the system with a full UI.
 ```bash
 # Start the Flask server
@@ -59,7 +60,7 @@ python app.py
 ```
 Then follow the **Frontend Setup** below to start the dashboard.
 
-#### ▶️ CLI Mode (Terminal Only)
+#### CLI Mode (Terminal Only)
 Process a single video directly from the command line without the UI.
 
 **Step 1: Draw detection zones** (Optional)
@@ -74,7 +75,7 @@ python draw_zone.py video.mp4
 python app.py --run video.mp4
 ```
 
-### 4️⃣ Frontend Setup (React/Vite)
+### 4. Frontend Setup (React/Vite)
 The frontend provides the user interface for monitoring and zone drawing.
 
 ```bash
@@ -91,31 +92,31 @@ The dashboard will be available at `http://localhost:8080`.
 
 ---
 
-## 🧠 System Architecture
+## System Architecture
 
-### 🔄 Pipeline Flow
+### Pipeline Flow
 
 ```text
 Video Input
-   ↓
+   |
 Frame Extraction (OpenCV)
-   ↓
+   |
 Person Detection (YOLOv8)
-   ↓
+   |
 Multi-Object Tracking (ByteTrack)
-   ↓
+   |
 Zone-Based Event Detection
-   ↓
+   |
 Visualization (Bounding Boxes + Labels)
-   ↓
+   |
 Logging (CSV / API)
-   ↓
+   |
 Output Video + Dashboard
 ```
 
 ---
 
-## 🔧 Technologies Used
+## Technologies Used
 
 | Component        | Technology |
 | ---------------- | ---------- |
@@ -130,30 +131,30 @@ Output Video + Dashboard
 
 ---
 
-## 📍 Event Definitions
+## Event Definitions
 
-### 🚨 Intrusion
+### Intrusion
 A person enters a predefined restricted zone.
 
-### ⏳ Loitering
+### Loitering
 A person stays inside a zone longer than a defined time threshold.
 
-### 👥 Crowd Alert
+### Crowd Alert
 Multiple people are present inside a zone beyond a defined threshold.
 
 ---
 
-## 📊 Output Generation
+## Output Generation
 
-### 🎥 Annotated Video
+### Annotated Video
 * Bounding boxes, Track IDs, Event labels, and Zone overlay.
 
-### 📄 Logs (CSV)
+### Logs (CSV)
 Detailed logs including `frame_number`, `person_id`, `event_type`, `timestamp`, and `bounding_box`.
 
 ---
 
-## 🖥️ Frontend Dashboard Features
+## Frontend Dashboard Features
 
 * **Multi-video upload:** Process several cameras at once.
 * **Zone drawing tool:** Draw custom detection polygons directly on the video.
@@ -162,11 +163,11 @@ Detailed logs including `frame_number`, `person_id`, `event_type`, `timestamp`, 
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 * **Occlusion:** Tracking IDs may swap if people cross paths closely.
 * **Hardware:** High-resolution videos require a decent CPU/GPU for real-time performance.
 
 ---
 
-## 🏁 Conclusion
+## Conclusion
 Sentinel demonstrates a complete **AI-based surveillance pipeline**, combining state-of-the-art detection (YOLOv8) and tracking (ByteTrack) with a modern, user-friendly dashboard.
