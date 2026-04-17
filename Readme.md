@@ -61,6 +61,15 @@ Then follow the **Frontend Setup** below to start the dashboard.
 
 #### ▶️ CLI Mode (Terminal Only)
 Process a single video directly from the command line without the UI.
+
+**Step 1: Draw detection zones** (Optional)
+If you aren't using the dashboard, use this tool to define your restricted zones first:
+```bash
+python draw_zone.py video.mp4
+```
+*Click to add points, press ESC to save.*
+
+**Step 2: Start processing**
 ```bash
 python app.py --run video.mp4
 ```
