@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smart Surveillance Dashboard — dark, modern, cyan/blue accents.
+   All colors are HSL tokens. Components MUST use these tokens. */
+
+@layer base {
+  :root {
+    /* Dark by default — design is dark-first */
+    --background: 222 30% 7%;
+    --foreground: 210 30% 96%;
+
+    --card: 222 28% 10%;
+    --card-foreground: 210 30% 96%;
+
+    --popover: 222 28% 10%;
+    --popover-foreground: 210 30% 96%;
+
+    --primary: 195 95% 55%;
+    --primary-foreground: 222 47% 8%;
+    --primary-glow: 190 100% 65%;
+
+    --secondary: 222 22% 16%;
+    --secondary-foreground: 210 30% 96%;
+
+    --muted: 222 18% 14%;
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 222 22% 16%;
+    --accent-foreground: 210 30% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --warning: 32 95% 58%;
+    --warning-foreground: 24 60% 10%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 144 60% 8%;
+
+    --border: 222 20% 18%;
+    --input: 222 20% 16%;
+    --ring: 195 95% 55%;
+
+    --radius: 0.75rem;
+
+    /* Surfaces / elevation */
+    --surface-1: 222 28% 10%;
+    --surface-2: 222 24% 13%;
+    --surface-3: 222 22% 16%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(195 95% 55%), hsl(220 95% 60%));
+    --gradient-glow: radial-gradient(60% 60% at 50% 0%, hsl(195 95% 55% / 0.15), transparent 70%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 84% 60%), hsl(20 95% 58%));
+    --gradient-card: linear-gradient(180deg, hsl(222 28% 11%), hsl(222 28% 9%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 0 1px hsl(195 95% 55% / 0.25), 0 8px 30px -10px hsl(195 95% 55% / 0.45);
+    --shadow-card: 0 1px 0 hsl(0 0% 100% / 0.04) inset, 0 12px 40px -20px hsl(222 80% 4% / 0.6);
+    --shadow-elevated: 0 20px 60px -25px hsl(222 80% 2% / 0.8);
+
+    /* Motion */
+    --transition-base: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Sidebar (unused but kept for shadcn) */
+    --sidebar-background: 222 28% 9%;
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 195 95% 55%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 222 22% 16%;
+    --sidebar-accent-foreground: 210 30% 96%;
+    --sidebar-border: 222 20% 18%;
+    --sidebar-ring: 195 95% 55%;
+  }
+
+  .dark {
+    /* Same as :root — app is dark-first */
+    --background: 222 30% 7%;
+    --foreground: 210 30% 96%;
+    --card: 222 28% 10%;
+    --card-foreground: 210 30% 96%;
+    --popover: 222 28% 10%;
+    --popover-foreground: 210 30% 96%;
+    --primary: 195 95% 55%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 222 22% 16%;
+    --secondary-foreground: 210 30% 96%;
+    --muted: 222 18% 14%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 222 22% 16%;
+    --accent-foreground: 210 30% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 20% 18%;
+    --input: 222 20% 16%;
+    --ring: 195 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 10% -10%, hsl(var(--primary) / 0.08), transparent 60%),
+      radial-gradient(900px 500px at 110% 0%, hsl(220 90% 60% / 0.06), transparent 60%);
+    background-attachment: fixed;
+    font-feature-settings: "cv11", "ss01", "ss03";
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-border bg-card text-card-foreground;
+    background-image: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between gap-2 px-5 pt-4 pb-3 border-b border-border/60;
+  }
+
+  .panel-title {
+    @apply text-sm font-semibold tracking-wide uppercase text-muted-foreground flex items-center gap-2;
+  }
+
+  .stat-card {
+    @apply panel p-4 flex items-center gap-4 transition-[transform,box-shadow] duration-300;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .glow-ring {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.25);
+    border-radius: 999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.45);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-primary { background-image: var(--gradient-primary); }
+  .bg-gradient-danger { background-image: var(--gradient-danger); }
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}
