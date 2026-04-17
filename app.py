@@ -27,7 +27,7 @@ os.makedirs(ZONE_FOLDER, exist_ok=True)
 
 import subprocess
 
-# 🔥 GLOBAL STATE
+# GLOBAL STATE
 STATE = {
     "processing": "idle",
     "current_video": None,
@@ -56,7 +56,7 @@ FRAME_LOCK = threading.Lock()
 # Load model globally to avoid reloading
 model = YOLO("yolov8n.pt") # Using nano for speed
 
-# 🚀 PROCESS FUNCTION
+# PROCESS FUNCTION
 def process_video(video_name, config):
     global LATEST_FRAME
     STATE["current_video"] = video_name

@@ -47,7 +47,7 @@ export function EventPanel({ className }: { className?: string }) {
   const events = useDashboardStore((s) => s.events);
 
   return (
-    <section className={cn("panel animate-fade-in flex flex-col h-full", className)}>
+    <section className={cn("panel animate-fade-in flex flex-col h-full overflow-hidden max-h-[880px]", className)}>
       <div className="panel-header">
         <h2 className="panel-title">
           <Bell className="h-3.5 w-3.5" /> Live Events

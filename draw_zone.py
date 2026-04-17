@@ -6,7 +6,7 @@ import sys
 
 # Usage: python draw_zone.py <video_path>
 if len(sys.argv) < 2:
-    print("❌ Error: Please provide a video path.")
+    print("Error: Please provide a video path.")
     print("Usage: python draw_zone.py video.mp4")
     sys.exit(1)
 
@@ -26,7 +26,7 @@ def draw(event, x, y, flags, param):
 cap = cv2.VideoCapture(video_path)
 ret, frame = cap.read()
 if not ret:
-    print("❌ Error: Could not read video.")
+    print("Error: Could not read video.")
     sys.exit(1)
 
 height, width = frame.shape[:2]
@@ -62,6 +62,6 @@ if len(points) >= 3:
     }
     with open(save_path, "w") as f:
         json.dump(zone_data, f, indent=4)
-    print(f"✅ Zone saved to {save_path}")
+    print(f"Zone saved to {save_path}")
 else:
-    print("❌ Ignored: At least 3 points required.")
+    print("Ignored: At least 3 points required.")
