@@ -50,7 +50,7 @@ interface DashboardState {
   backendConnected: boolean;
   errorMessage: string | null;
 
-  // Actions — every mutation that touches uploads/zones/config is gated by `processing`
+  // Actions - every mutation that touches uploads/zones/config is gated by `processing`
   // so the lock is enforced at the state level, not just by disabling buttons.
   addVideos: (videos: UploadedVideo[]) => void;
   removeVideo: (name: string) => void;
@@ -106,7 +106,7 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
 
   addVideos: (videos) =>
     set((s) => {
-      // PROCESSING LOCK — refuse mutation while processing
+      // PROCESSING LOCK - refuse mutation while processing
       if (s.processing === "processing") return s;
       const existing = new Set(s.videos.map((v) => v.name));
       const merged = [...s.videos];

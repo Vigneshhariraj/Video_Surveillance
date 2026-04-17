@@ -35,7 +35,7 @@ function EventCard({ e }: { e: SurveillanceEvent }) {
         <p className="text-xs text-muted-foreground">
           Person <span className="font-mono text-foreground">#{e.person_id}</span>
           {e.frame !== undefined && (
-            <> • Frame <span className="font-mono text-foreground">{e.frame}</span></>
+            <> - Frame <span className="font-mono text-foreground">{e.frame}</span></>
           )}
         </p>
       </div>

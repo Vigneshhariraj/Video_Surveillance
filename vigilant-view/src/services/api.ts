@@ -1,6 +1,6 @@
 // Centralised API service layer.
 // Base URL is configurable via VITE_API_BASE_URL; defaults to "/api".
-// All API calls go through here — no raw fetch in components.
+// All API calls go through here - no raw fetch in components.
 
 const BASE_URL =
   (import.meta.env.VITE_API_BASE_URL as string | undefined)?.replace(/\/$/, "") ||

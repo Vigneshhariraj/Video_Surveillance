@@ -1,4 +1,4 @@
-# Sentinel: Smart Video Surveillance System
+# Smart Video Surveillance System
 
 ## Overview
 
@@ -170,4 +170,4 @@ Detailed logs including `frame_number`, `person_id`, `event_type`, `timestamp`, 
 ---
 
 ## Conclusion
-Sentinel demonstrates a complete **AI-based surveillance pipeline**, combining state-of-the-art detection (YOLOv8) and tracking (ByteTrack) with a modern, user-friendly dashboard.
+This project demonstrates a complete **AI-based surveillance pipeline**, combining state-of-the-art detection (YOLOv8) and tracking (ByteTrack) with a modern, user-friendly dashboard.
