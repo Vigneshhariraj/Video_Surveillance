@@ -42,7 +42,7 @@ export function LogsTable({ className }: { className?: string }) {
   };
 
   return (
-    <section className={cn("panel animate-fade-in flex flex-col h-full overflow-hidden max-h-[440px]", className)}>
+    <section className={cn("panel animate-fade-in flex flex-col h-full overflow-hidden max-h-[400px]", className)}>
       <div className="panel-header">
         <h2 className="panel-title">
           <ListOrdered className="h-3.5 w-3.5" /> Event Logs

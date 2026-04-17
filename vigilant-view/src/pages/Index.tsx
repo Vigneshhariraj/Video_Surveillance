@@ -21,29 +21,29 @@ const Index = () => {
         <StatsPanel />
  
         {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
           
           {/* ROW 1: Setup, Player, and Live Alerts */}
-          <div className="xl:col-span-3 flex flex-col">
-            <VideoUpload className="h-full" />
+          <div className="xl:col-span-3 space-y-6">
+            <VideoUpload />
           </div>
           
-          <div className="xl:col-span-6 flex flex-col">
-            <VideoPlayer className="h-full" />
+          <div className="xl:col-span-6">
+            <VideoPlayer />
           </div>
           
-          <div className="xl:col-span-3 flex flex-col">
-            <EventPanel className="h-full" />
+          <div className="xl:col-span-3">
+            <EventPanel />
           </div>
  
           {/* ROW 2: Configuration, Controls, and Detailed Logs */}
-          <div className="xl:col-span-3 flex flex-col gap-6">
-            <ConfigPanel className="flex-1" />
-            <ControlsPanel className="flex-1" />
+          <div className="xl:col-span-3 space-y-6">
+            <ConfigPanel />
+            <ControlsPanel />
           </div>
  
-          <div className="xl:col-span-9 flex flex-col">
-            <LogsTable className="h-full" />
+          <div className="xl:col-span-9">
+            <LogsTable />
           </div>
         </div>
       </main>
