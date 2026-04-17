@@ -1,4 +1,4 @@
-import { AlertTriangle, Clock, LogOut, Users, Bell, FileVideo } from "lucide-react";
+import { AlertTriangle, Clock, LogOut, Users, Bell, FileVideo, Info } from "lucide-react";
 import { useDashboardStore } from "@/store/dashboardStore";
 import type { SurveillanceEvent } from "@/services/api";
 import { cn } from "@/lib/utils";
@@ -47,12 +47,17 @@ export function EventPanel({ className }: { className?: string }) {
   const events = useDashboardStore((s) => s.events);
 
   return (
-    <section className={cn("panel animate-fade-in flex flex-col h-full overflow-hidden max-h-[500px]", className)}>
-      <div className="panel-header">
-        <h2 className="panel-title">
-          <Bell className="h-3.5 w-3.5" /> Live Events
-        </h2>
-        <span className="text-xs text-muted-foreground">{events.length} total</span>
+    <section className={cn("panel animate-fade-in flex flex-col h-full overflow-hidden", className)}>
+      <div className="panel-header flex-col items-start gap-1 py-3">
+        <div className="flex items-center justify-between w-full">
+           <h2 className="panel-title">
+             <Bell className="h-3.5 w-3.5" /> Live Events
+           </h2>
+           <span className="text-xs text-muted-foreground">{events.length} total</span>
+        </div>
+        <p className="text-[10px] text-muted-foreground/70 leading-tight flex items-center gap-1">
+          <Info className="h-3 w-3" /> Real-time stream of security events captured during the current analysis loop.
+        </p>
       </div>
       <div className="p-4 flex-1 min-h-0">
         {events.length === 0 ? (

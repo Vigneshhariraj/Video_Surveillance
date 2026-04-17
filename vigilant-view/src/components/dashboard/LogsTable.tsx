@@ -1,4 +1,4 @@
-import { Download, ListOrdered } from "lucide-react";
+import { Download, ListOrdered, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useDashboardStore } from "@/store/dashboardStore";
 import { cn } from "@/lib/utils";
@@ -43,13 +43,18 @@ export function LogsTable({ className }: { className?: string }) {
 
   return (
     <section className={cn("panel animate-fade-in flex flex-col h-full overflow-hidden max-h-[400px]", className)}>
-      <div className="panel-header">
-        <h2 className="panel-title">
-          <ListOrdered className="h-3.5 w-3.5" /> Event Logs
-        </h2>
-        <Button size="sm" variant="secondary" onClick={downloadCsv}>
-          <Download className="h-3.5 w-3.5 mr-1.5" /> Download CSV
-        </Button>
+      <div className="panel-header flex-col items-start gap-2 py-3">
+        <div className="flex items-center justify-between w-full">
+           <h2 className="panel-title">
+             <ListOrdered className="h-3.5 w-3.5" /> Event Logs
+           </h2>
+           <Button size="sm" variant="secondary" onClick={downloadCsv}>
+             <Download className="h-3.5 w-3.5 mr-1.5" /> Download CSV
+           </Button>
+        </div>
+        <p className="text-[10px] text-muted-foreground/70 leading-tight">
+          Comprehensive audit trail of all detected events, indexed by frame and person ID for forensic review.
+        </p>
       </div>
       <div className="overflow-auto flex-1 scrollbar-thin">
         <table className="w-full text-sm">

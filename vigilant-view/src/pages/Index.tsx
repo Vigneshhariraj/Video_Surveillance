@@ -20,30 +20,32 @@ const Index = () => {
         {/* Stats — full width */}
         <StatsPanel />
  
-        {/* Main Dashboard Grid */}
+        {/* Unified Dashboard Layout */}
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
           
-          {/* ROW 1: Setup, Player, and Live Alerts */}
+          {/* CONTINUOUS SIDBAR: Setup, Configuration & Actions */}
           <div className="xl:col-span-3 space-y-6">
             <VideoUpload />
-          </div>
-          
-          <div className="xl:col-span-6">
-            <VideoPlayer />
-          </div>
-          
-          <div className="xl:col-span-3">
-            <EventPanel />
-          </div>
- 
-          {/* ROW 2: Configuration, Controls, and Detailed Logs */}
-          <div className="xl:col-span-3 space-y-6">
             <ConfigPanel />
             <ControlsPanel />
           </div>
  
-          <div className="xl:col-span-9">
-            <LogsTable />
+          {/* MAIN MONITORING AREA */}
+          <div className="xl:col-span-9 space-y-6">
+            {/* Upper Content: Monitoring and Live Alerts */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+               <div className="lg:col-span-8 flex flex-col">
+                  <VideoPlayer className="h-full" />
+               </div>
+               <div className="lg:col-span-4 flex flex-col">
+                  <EventPanel className="h-full" />
+               </div>
+            </div>
+ 
+            {/* Lower Content: Detailed Data History */}
+            <div className="w-full">
+              <LogsTable />
+            </div>
           </div>
         </div>
       </main>
